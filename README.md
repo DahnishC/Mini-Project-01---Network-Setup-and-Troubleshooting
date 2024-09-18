@@ -89,23 +89,24 @@ The objective is to configure a network with two Local Area Networks (LANs):
       - Open a browser on Workstation 1 and access http://172.16.0.2 to confirm web server functionality.
   - **DNS Test:**
       - Try resolving the domain using the DNS server by typing the domain name mywebserver.local into the browser on Workstation 1.
+![2024-09-17 (7)](https://github.com/user-attachments/assets/a731dfc6-4cd1-4fdf-bfb1-23476f060ae5)
 
 
 ### Key Configuration Decisions and Justifications 
-Subnetting:
-Workstations Subnet (192.168.0.0/26): Allows up to 62 usable IP addresses for employee devices.
-Servers Subnet (172.16.0.0/24): Allocates up to 254 usable IP addresses for future scalability in server deployment.
-IP Addressing: Static IPs are assigned to all devices to ensure a reliable and predictable network setup, essential for server configurations.
+  - **Subnetting:**
+      - **Workstations Subnet** (192.168.0.0/26): Allows up to 62 usable IP addresses for employee devices.
+      - **Servers Subnet** (172.16.0.0/24): Allocates up to 254 usable IP addresses for future scalability in server deployment.
+      - **IP Addressing:** Static IPs are assigned to all devices to ensure a reliable and predictable network setup, essential for server configurations.
 
 
 
 ### Troubleshooting Tips 
-Issue 1: No Connectivity Between LANs
-Solution: Ensure that IP routing is enabled on the router (ip routing command).
-Verify that IP addresses are correctly assigned to the router interfaces.
-Issue 2: Unable to Access Web Server
-Solution: Check that the web server is up and running.
-Ensure that there’s no firewall blocking port 80 (HTTP).
-Issue 3: DNS Resolution Failing
-Solution: Verify DNS settings on the server and ensure the DNS service is running.
-Ensure the DNS record is properly configured.
+  - **Issue 1: No Connectivity Between LANs**
+      - Solution: Ensure that IP routing is enabled on the router (ip routing command).
+      - Verify that IP addresses are correctly assigned to the router interfaces.
+  - **Issue 2: Unable to Access Web Server**
+      - Solution: Check that the web server is up and running.
+      - Ensure that there’s no firewall blocking port 80 (HTTP).
+  - **Issue 3: DNS Resolution Failing**
+      - Solution: Verify DNS settings on the server and ensure the DNS service is running.
+      - Ensure the DNS record is properly configured.
