@@ -75,24 +75,23 @@ The objective is to configure a network with two Local Area Networks (LANs):
   2. Add a DNS record for the web server:
       - **A Record:** Point the domain name (e.g., mywebserver.local) to the web server’s IP address (172.16.0.2).
         - Mywebserver.local.      IN A    172.16.0.2
-  
+ ![2024-09-17 (8)](https://github.com/user-attachments/assets/a3f4b154-6ce2-4d0c-9769-28255d41f264)
+   3. Restart the DNS service
+      - Sudo systemct1 restart bind9
+  4. Verify the DNS resolution’
+      - From a workstation, run
+        - Nslookup mywebserver.local
 
-Restart the DNS service
-Sudo systemct1 restart bind9
-Verify the DNS resolution’
-From a workstation, run
-Nslookup mywebserver.local
-
-Step 6: Test Connectivity
-Ping Test:
-From Workstation 1, ping the Web Server (ping 172.16.0.2) and DNS Server (ping 172.16.0.3).
-Access the Web Server:
-Open a browser on Workstation 1 and access http://172.16.0.2 to confirm web server functionality.
-DNS Test:
-Try resolving the domain using the DNS server by typing the domain name mywebserver.local into the browser on Workstation 1.
+### Step 6: Test Connectivity
+  - **Ping Test:**
+      - From Workstation 1, ping the Web Server (ping 172.16.0.2) and DNS Server (ping 172.16.0.3).
+  - **Access the Web Server:**
+      - Open a browser on Workstation 1 and access http://172.16.0.2 to confirm web server functionality.
+  - **DNS Test:**
+      - Try resolving the domain using the DNS server by typing the domain name mywebserver.local into the browser on Workstation 1.
 
 
-Key Configuration Decisions and Justifications 
+### Key Configuration Decisions and Justifications 
 Subnetting:
 Workstations Subnet (192.168.0.0/26): Allows up to 62 usable IP addresses for employee devices.
 Servers Subnet (172.16.0.0/24): Allocates up to 254 usable IP addresses for future scalability in server deployment.
@@ -100,7 +99,7 @@ IP Addressing: Static IPs are assigned to all devices to ensure a reliable and p
 
 
 
-Troubleshooting Tips 
+### Troubleshooting Tips 
 Issue 1: No Connectivity Between LANs
 Solution: Ensure that IP routing is enabled on the router (ip routing command).
 Verify that IP addresses are correctly assigned to the router interfaces.
