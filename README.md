@@ -112,11 +112,6 @@ The objective is to configure a network with two Local Area Networks (LANs):
       - Ensure the DNS record is properly configured.
    
 
-
-
-
-
-
 ## FAQ: Network Setup and Troubleshooting
 
 ### Q1: Why can’t Workstation 1 connect to the Web Server?
@@ -189,7 +184,16 @@ If there’s no reply, check the switch connections and verify that the switch p
       - Click on your active network connection (Wi-Fi or Ethernet).
       - Your IP address will be displayed.
 
+## Retrospective
 
+### Challenges Encountered and How They Were Addressed
+This hands-on experience setting up and troubleshooting a network taught me a lot about network configuration, problem-solving, and dealing with technical challenges that arise during a real-world network setup. There were multiple challenges that we as a group faced and one was when we were configuring the DNS Server, we encountered an issue where the domain name (mywebserver.local) was not resolving correctly to the Web erver’s IP address. Even after adding the A Record in the DNS configuration, requests for the domain name would fail. We realized that the DNS record was misconfigured because we had mistakenly entered the wrong IP address for the Web Server in the DNS settings. After correcting the A Record to point to the correct IP (172.16.0.2), the DNS Server successfully resolved the domain, and the Web Server became accessible by name. This challenge reinforced the importance of double-checking configuration settings, particularly with critical services like DNS. Another problem we faced was, Nahib’s laptop and Brady’s laptop were not being able to be pinged and were not able to reach the DNS server. We had to troubleshoot this problem and found out that on Windows, it is more strict with firewalls compared to mac’s. So on the DNS Server (Windows), we checked if there were firewall rules allowing inbound DNS traffic. For this we had to Go to Advanced Firewall Settings and ensure that the firewalls were turned off and finally got a connection!
+
+### New Skills and Insights Gained
+Throughout this project, I gained  a deeper understanding of how subnetting and IP addressing work in real-world network configurations. I had previously studied subnetting theoretically, but this project gave me a practical understanding of how to allocate IP addresses within subnets. The challenge of ensuring that all devices were properly configured and within the correct subnet range reinforced my understanding of how subnet masks function and how they affect the number of available IP addresses.  I also became more proficient in using Cisco Packet Tracer and the command-line interface (CLI) for configuring network devices. This hands-on experience with the CLI—configuring routers and switches, assigning IP addresses, enabling routing, and setting up services—was invaluable. I now feel more confident navigating the CLI and making configuration changes in a network environment.
+
+### Areas for Improvement and What Could Be Done Diffrently 
+The biggest room for improvement and for future projects in this class would be to improve on my notes during the project as doing this project I had to remember everything via my brain. While I kept notes of my steps, I did not document them as thoroughly as I should have, especially when it came to troubleshooting specific issues like DNS configuration and firewall rules. Better documentation of each step and configuration change would have made it easier to backtrack when I encountered problems. Moving forward, I plan to use network diagrams and configuration logs to ensure that every step is documented properly for easier troubleshooting and future reference.  
 
 
 
