@@ -137,63 +137,57 @@ The objective is to configure a network with two Local Area Networks (LANs):
 **Troubleshooting Steps:**
   1. **Check Subnet Mask:** Ensure that both workstations are assigned the correct subnet mask. For the 192.168.0.0/26 network, the subnet mask should be 255.255.255.192.
   2. **Test Network Connectivity:** Ping Workstation 2 (192.168.0.3) from Workstation 1:
-
-
+![2024-09-17 (10)](https://github.com/user-attachments/assets/57626c1a-5946-44e2-853d-4ba4c83fba40)
 
 If there’s no reply, check the switch connections and verify that the switch ports are operational.
-  3.   Switch Issues: Ensure that both workstations are connected to Switch 1 and that the switch has no configuration issues (e.g., port shutdown or VLAN misconfiguration).
-IMPORTANT:
-Ensure that all devices on the same LAN have the same subnet mask and are physically connected to the same switch.
+  3. **Switch Issues:** Ensure that both workstations are connected to Switch 1 and that the switch has no configuration issues (e.g., port shutdown or VLAN misconfiguration).
+**IMPORTANT:**
+  - Ensure that all devices on the same LAN have the same subnet mask and are physically connected to the same switch.
 
 ### Q3: Why can’t Workstation 1 access the Web Server despite being on the same network?
-Issue:
-Workstation 1 is unable to access the Web Server (172.16.0.2), and the firewall on the Web Server (Windows PC) might be blocking traffic.
-Troubleshooting Steps:
-Check Windows Firewall Settings on the Web Server:
-Open Windows Defender Firewall on the Web Server.
-Go to Advanced Settings to review the inbound rules
-      2.    Temporarily Disable Windows Firewall for Testing:
-As a quick check, temporarily disable the Windows Firewall on the Web Server and test connectivity:
-Go to Control Panel → Windows Defender Firewall.
-Select Turn Windows Defender Firewall on or off.
-Choose to disable it for Private and Public networks.
-If disabling the firewall resolves the issue, the problem lies with firewall rules. Turn the firewall back on and review the rules carefully.
-      3.  Check for Additional Security Software:
-If there is third-party security software installed (e.g., antivirus programs with a built-in firewall), verify that it is not blocking traffic to the Web Server. Temporarily disable any such software for testing purposes.
-
-IMPORTANT
-Ensure that firewall rules are specific and allow only necessary traffic to avoid opening potential vulnerabilities. Regularly audit firewall settings to maintain network security.
+**Issue:** Workstation 1 is unable to access the Web Server (172.16.0.2), and the firewall on the Web Server (Windows PC) might be blocking traffic.
+**Troubleshooting Steps:**
+  1. **Check Windows Firewall Settings on the Web Server:**
+      - Open Windows Defender Firewall on the Web Server.
+      - Go to Advanced Settings to review the inbound rules
+  2. **Temporarily Disable Windows Firewall for Testing:**
+      - As a quick check, temporarily disable the Windows Firewall on the Web Server and test connectivity:
+      - Go to Control Panel → Windows Defender Firewall.
+      - Select Turn Windows Defender Firewall on or off.
+      - Choose to disable it for Private and Public networks.
+      - If disabling the firewall resolves the issue, the problem lies with firewall rules. Turn the firewall back on and review the rules carefully.
+  3. **Check for Additional Security Software:**
+      - If there is third-party security software installed (e.g., antivirus programs with a built-in firewall), verify that it is not blocking traffic to the Web Server. Temporarily disable any such software for testing purposes.
+**IMPORTANT**
+  - Ensure that firewall rules are specific and allow only necessary traffic to avoid opening potential vulnerabilities. Regularly audit firewall settings to maintain network security.
 
 ### Q4: Why can’t I access the DNS Server from Workstation 1?
-Issue: Workstation 1 (192.168.0.2) is unable to reach the DNS Server (172.16.0.3), preventing domain name resolution.
-Troubleshooting Steps
-Check DNS Server Configuration:
-Ensure that the DNS server service is running. For Windows Server, check via Services or the DNS Manager.
-Ensure that the correct DNS record for the domain is configured (e.g., A Record pointing to a web server).
-Verify IP Address and Default Gateway:
-Confirm that the DNS server has the correct IP configuration (172.16.0.3/24) and that its default gateway is set to the router’s interface IP (172.16.0.1).
-Test DNS Resolution:
-On Workstation 1, test if you can resolve a domain name using the nslookup command:
-If the DNS lookup fails, ensure that DNS traffic (port 53) is allowed through the firewall on the DNS Server.
-Firewall Rules:
-On the DNS Server (Windows), check if there are firewall rules allowing inbound DNS traffic (UDP on port 53):
-Go to Advanced Firewall Settings and ensure a rule for DNS traffic is enabled.
-
-
-
-
+**Issue:** Workstation 1 (192.168.0.2) is unable to reach the DNS Server (172.16.0.3), preventing domain name resolution.
+**Troubleshooting Steps:**
+  1. **Check DNS Server Configuration:**
+      - Ensure that the DNS server service is running. For Windows Server, check via Services or the DNS Manager.
+      - Ensure that the correct DNS record for the domain is configured (e.g., A Record pointing to a web server).
+  2. **Verify IP Address and Default Gateway:**
+      - Confirm that the DNS server has the correct IP configuration (172.16.0.3/24) and that its default gateway is set to the router’s interface IP (172.16.0.1).
+  3. **Test DNS Resolution:**
+      - On Workstation 1, test if you can resolve a domain name using the nslookup command:
+      - If the DNS lookup fails, ensure that DNS traffic (port 53) is allowed through the firewall on the DNS Server.
+  4. **Firewall Rules:**
+      - On the DNS Server (Windows), check if there are firewall rules allowing inbound DNS traffic (UDP on port 53):
+      - Go to Advanced Firewall Settings and ensure a rule for DNS traffic is enabled.
+      - 
 ### Q5: How do I find my computer’s IP address
-Issue: A user needs to know their IP address for troubleshooting.
-Steps to finding your IP Address:
-On Windows
-Click on the Start Menu
-Type cmd in the search bar and open Command Prompt
-Type ipconfig and press enter
-Look for IPv4 Address in the results (e.g., 192.168.0.5).
-On Mac
-Open Systems Prefrences and select Network
-Click on your active network connection (Wi-Fi or Ethernet).
-Your IP address will be displayed.
+**Issue:** A user needs to know their IP address for troubleshooting.
+**Steps to finding your IP Address:**
+  1. **On Windows**
+      - Click on the Start Menu
+      - Type cmd in the search bar and open Command Prompt
+      - Type ipconfig and press enter
+      - Look for IPv4 Address in the results (e.g., 192.168.0.5).
+  2. **On Mac**
+      - Open Systems Prefrences and select Network
+      - Click on your active network connection (Wi-Fi or Ethernet).
+      - Your IP address will be displayed.
 
 
 
