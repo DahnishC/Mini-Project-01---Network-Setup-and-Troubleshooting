@@ -110,3 +110,97 @@ The objective is to configure a network with two Local Area Networks (LANs):
   - **Issue 3: DNS Resolution Failing**
       - Solution: Verify DNS settings on the server and ensure the DNS service is running.
       - Ensure the DNS record is properly configured.
+   
+
+
+
+
+
+
+## FAQ: Network Setup and Troubleshooting
+
+### Q1: Why can’t Workstation 1 connect to the Web Server?
+**Issue:** Workstation 1 (192.168.0.2) is unable to access the Web Server (172.16.0.2).
+**Troubleshooting Steps:**
+      1. **Check IP Configuration:** Ensure that the correct IP addresses and subnet masks are configured on both Workstation 1 and the Web Server.
+        - Verify that Workstation 1 has 192.168.0.2/26 and the Web Server has 172.16.0.2/24.
+      2. **Verify Default Gateway:** Ensure Workstation 1’s default gateway is correctly set to 192.168.0.1 and the Web Server’s default gateway is 172.16.0.1.
+      3. **Test Connectivity:**
+        - Ping the default gateway (192.168.0.1) from Workstation 1 to ensure it can reach the router.
+        - Then, ping the Web Server (172.16.0.2) to confirm end-to-end communication.
+**IMPORTANT:**
+  - Always verify the IP configuration and the default gateway settings on devices when they cannot communicate across different subnets.
+
+
+### Q2: Why are the workstations unable to communicate with each other on the same LAN?
+**Issue:** Workstation 1 and Workstation 2 cannot communicate with each other even though they are on the same subnet.
+**Troubleshooting Steps:**
+  1. **Check Subnet Mask:** Ensure that both workstations are assigned the correct subnet mask. For the 192.168.0.0/26 network, the subnet mask should be 255.255.255.192.
+  2. **Test Network Connectivity:** Ping Workstation 2 (192.168.0.3) from Workstation 1:
+
+
+
+If there’s no reply, check the switch connections and verify that the switch ports are operational.
+  3.   Switch Issues: Ensure that both workstations are connected to Switch 1 and that the switch has no configuration issues (e.g., port shutdown or VLAN misconfiguration).
+IMPORTANT:
+Ensure that all devices on the same LAN have the same subnet mask and are physically connected to the same switch.
+
+### Q3: Why can’t Workstation 1 access the Web Server despite being on the same network?
+Issue:
+Workstation 1 is unable to access the Web Server (172.16.0.2), and the firewall on the Web Server (Windows PC) might be blocking traffic.
+Troubleshooting Steps:
+Check Windows Firewall Settings on the Web Server:
+Open Windows Defender Firewall on the Web Server.
+Go to Advanced Settings to review the inbound rules
+      2.    Temporarily Disable Windows Firewall for Testing:
+As a quick check, temporarily disable the Windows Firewall on the Web Server and test connectivity:
+Go to Control Panel → Windows Defender Firewall.
+Select Turn Windows Defender Firewall on or off.
+Choose to disable it for Private and Public networks.
+If disabling the firewall resolves the issue, the problem lies with firewall rules. Turn the firewall back on and review the rules carefully.
+      3.  Check for Additional Security Software:
+If there is third-party security software installed (e.g., antivirus programs with a built-in firewall), verify that it is not blocking traffic to the Web Server. Temporarily disable any such software for testing purposes.
+
+IMPORTANT
+Ensure that firewall rules are specific and allow only necessary traffic to avoid opening potential vulnerabilities. Regularly audit firewall settings to maintain network security.
+
+### Q4: Why can’t I access the DNS Server from Workstation 1?
+Issue: Workstation 1 (192.168.0.2) is unable to reach the DNS Server (172.16.0.3), preventing domain name resolution.
+Troubleshooting Steps
+Check DNS Server Configuration:
+Ensure that the DNS server service is running. For Windows Server, check via Services or the DNS Manager.
+Ensure that the correct DNS record for the domain is configured (e.g., A Record pointing to a web server).
+Verify IP Address and Default Gateway:
+Confirm that the DNS server has the correct IP configuration (172.16.0.3/24) and that its default gateway is set to the router’s interface IP (172.16.0.1).
+Test DNS Resolution:
+On Workstation 1, test if you can resolve a domain name using the nslookup command:
+If the DNS lookup fails, ensure that DNS traffic (port 53) is allowed through the firewall on the DNS Server.
+Firewall Rules:
+On the DNS Server (Windows), check if there are firewall rules allowing inbound DNS traffic (UDP on port 53):
+Go to Advanced Firewall Settings and ensure a rule for DNS traffic is enabled.
+
+
+
+
+### Q5: How do I find my computer’s IP address
+Issue: A user needs to know their IP address for troubleshooting.
+Steps to finding your IP Address:
+On Windows
+Click on the Start Menu
+Type cmd in the search bar and open Command Prompt
+Type ipconfig and press enter
+Look for IPv4 Address in the results (e.g., 192.168.0.5).
+On Mac
+Open Systems Prefrences and select Network
+Click on your active network connection (Wi-Fi or Ethernet).
+Your IP address will be displayed.
+
+
+
+
+
+
+  
+
+
+
