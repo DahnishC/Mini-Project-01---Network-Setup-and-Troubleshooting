@@ -8,17 +8,18 @@ The objective is to configure a network with two Local Area Networks (LANs):
 
 ### Use Cases for the System 
 
-Internal Corporate Network: Employees use workstations to access internal services like the web server.
-Server Maintenance and Hosting: Network admins can access and maintain the web and DNS servers, ensuring external services run smoothly.
-Testing and Development: Developers can test internal applications hosted on the web server in a secure environment.
+**Internal Corporate Network:** Employees use workstations to access internal services like the web server.
+**Server Maintenance and Hosting:** Network admins can access and maintain the web and DNS servers, ensuring external services run smoothly.
+**Testing and Development:** Developers can test internal applications hosted on the web server in a secure environment.
 
 
-Detailed Configuration Steps
+### Detailed Configuration Steps
 
-Step (optional) Subnet Mask and IP Assignment Table
-Creating a table to outline the IP addressing plan for all devices can be helpful
+**Step (optional) Subnet Mask and IP Assignment Table**
+  - Creating a table to outline the IP addressing plan for all devices can be helpful
 
-Step 1: Setting Up the Router
+
+**Step 1: Setting Up the Router**
 Assign IP Addresses to Router Interfaces:
 Open the router’s CLI or web interface (if available).
 Assign the following IP addresses:
